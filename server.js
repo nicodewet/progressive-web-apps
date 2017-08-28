@@ -5,7 +5,6 @@ const path = require('path');
 
 // Constants
 const PORT = 8080;
-const HOST = '0.0.0.0';
 
 // App
 // app.configure is no longer part of express in:
@@ -20,5 +19,5 @@ app.use('/', express.static(__dirname + '/'));
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
-app.listen(HOST, PORT);
-console.log(`Running on http://${HOST}:${PORT}`);
+app.listen(PORT);
+console.log(`Running on ${PORT} (check our OS mapped port if running on bridge network with Docker)`);
