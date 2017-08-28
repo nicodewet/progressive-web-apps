@@ -6,11 +6,10 @@ var path = require('path');
 // https://github.com/expressjs/express/wiki/Migrating-from-3.x-to-4.x
 app.use('/js', express.static(__dirname + '/js'));
 app.use('/images', express.static(__dirname + '/images'));
+app.use('/css', express.static(__dirname + '/css'));
+app.use('/data', express.static(__dirname + '/data'));
 app.use('/', express.static(__dirname + '/'));
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
-
-
-
 app.listen(8080);
