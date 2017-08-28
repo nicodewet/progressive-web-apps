@@ -9,3 +9,19 @@ In terms of bookmarks, if you bought the book you may know the Service Workers a
 * [MDN - Service Worker API](https://developer.mozilla.org/en/docs/Web/API/Service_Worker_API)
 * [Browser Servicer Worker Ready?](https://jakearchibald.github.io/isserviceworkerready/)
 * [Service Workers: an Introduction](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers)
+
+## Up and Running With Docker
+
+Note if you already have something listening on your OS port the error message is slightly cryptic.
+
+```
+$ docker build -t nicodewet/node-web-app .
+$ docker run -p 8080:8080 nicodewet/node-web-app
+```
+
+Without the cache and and in background.
+
+```
+$ docker build --no-cache -t nicodewet/node-web-app .
+$ docker run -p 8080:8080 -d nicodewet/node-web-app
+```
