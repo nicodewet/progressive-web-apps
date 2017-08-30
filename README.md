@@ -25,3 +25,17 @@ Without the cache and and in background.
 $ docker build --no-cache -t nicodewet/node-web-app .
 $ docker run -p 8080:8080 -d nicodewet/node-web-app
 ```
+
+## Onto Production
+
+On laptop (and CI Server in time).
+
+```
+$ docker push nicodewet/node-web-app
+```
+
+On EC2 instance.
+
+```
+$ sudo docker pull nicodewet/node-web-app  
+```
