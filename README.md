@@ -28,6 +28,8 @@ $ docker run -p 8080:8080 -d nicodewet/node-web-app
 
 ## Onto Production
 
+### Relatively Simple Uni-Server Setup
+
 On laptop (and CI Server in time).
 
 ```
@@ -39,3 +41,41 @@ On EC2 instance.
 ```
 $ sudo docker pull nicodewet/node-web-app  
 ```
+
+[Secure Apache2 With Let's Encrypt](https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-16-04).
+
+```
+$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt-get update
+$ sudo apt-get install python-certbot-apache
+$ sudo certbot --apache -d makaro.io -d www.makaro.io
+```
+
+Run the app.
+
+```
+$ sudo docker run -p 8080:8080 -d nicodewet/node-web-app
+```
+
+Finish apache reverse proxy configuration. Take note of the *-ssl.conf bit.
+
+```
+$ sudo a2enmod proxy
+$ sudo a2enmod proxy_http
+$ sudo nano /etc/apache2/sites-available/000-default-le-ssl.conf 
+$ sudo service apache2 restart
+$ sudo service apache2 status
+```
+
+With the *-ssl.conf bit you'll add the below into the file.
+
+```
+ProxyPreserveHost On
+
+ProxyPass / http://127.0.0.1:8080/
+ProxyPassReverse / http://127.0.0.1:8080/
+```
+
+### Done
+
+https://www.makaro.io/
