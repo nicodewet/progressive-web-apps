@@ -57,7 +57,7 @@ Run the app.
 $ sudo docker run -p 8080:8080 -d nicodewet/node-web-app
 ```
 
-Finish apache reverse proxy configuration. Take note of the *-ssl.conf bit.
+Finish [apache reverse proxy configuration](https://www.digitalocean.com/community/tutorials/how-to-use-apache-as-a-reverse-proxy-with-mod_proxy-on-ubuntu-16-04). Take note of the *-ssl.conf bit.
 
 ```
 $ sudo a2enmod proxy
