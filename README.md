@@ -2,9 +2,9 @@
 
 This repository represents my executable learnings from the [Progressive Web Apps](https://www.manning.com/books/progressive-web-apps) book.
 
-In general I want to run examples with Node.js v8.4.0 (which is what I happen to have on my local right now), Express 4 and ideally I want to wrap them with docker and deploy them to my domain (makario.io).
+In general I want to run examples with Node.js v8.9.3 (which is what I happen to have on my local right now), Express 4 and ideally I want to wrap them with docker and deploy them to my domain (makario.io).
 
-In terms of bookmarks, if you bought the book you may know the Service Workers are key, so here are some relevant bookmarks and as you may expect MDN has **excellent** documentation:
+In terms of bookmarks, if you bought the book you may know that Service Workers are key, so here are some relevant bookmarks and as you may expect MDN has **excellent** documentation:
 
 * [MDN - Service Worker API](https://developer.mozilla.org/en/docs/Web/API/Service_Worker_API)
 * [Browser Servicer Worker Ready?](https://jakearchibald.github.io/isserviceworkerready/)
@@ -19,7 +19,7 @@ $ docker build -t nicodewet/node-web-app .
 $ docker run -p 8080:8080 nicodewet/node-web-app
 ```
 
-Without the cache and and in background.
+Without the cache and in background.
 
 ```
 $ docker build --no-cache -t nicodewet/node-web-app .
