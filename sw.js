@@ -1,4 +1,4 @@
-var cacheName = 'latestNews-v1';
+var cacheName = 'camera.makaro.io-v1';
 
 // Cache our known resources during install by tapping into the Service Worker installation event.
 // This is known as "pre-caching".
@@ -7,13 +7,11 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(cacheName)
       .then(cache => cache.addAll([
-        './js/main.js',
-        './js/article.js',
-        './images/newspaper.svg',
-        './css/site.css',
-        './data/latest.json',
-        './data/data-1.json',
-        './article.html',
+        './js/jquery-3.2.1/jquery.slim.min.js',
+        './js/popper-1.12.9/umd/popper.min.js',
+        './js/bootstrap-4.0.0-beta.3/bootstrap.min.js',
+        './css/bootstrap-4.0.0-beta.3/bootstrap.min.css',
+        './css/starter-template.css',
         './index.html'
       ]))
   );

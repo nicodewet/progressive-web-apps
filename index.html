@@ -62,6 +62,18 @@
     <script src="./js/jquery-3.2.1/jquery.slim.min.js"></script>
     <script src="./js/popper-1.12.9/umd/popper.min.js"></script>
     <script src="./js/bootstrap-4.0.0-beta.3/bootstrap.min.js"></script>
+    <script>
+        // Register the service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js').then(function (registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function (err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
 </body>
 
 </html>
