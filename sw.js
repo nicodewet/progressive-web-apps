@@ -3,6 +3,7 @@ var cacheName = 'camera.makaro.io-v1';
 // Cache our known resources during install by tapping into the Service Worker installation event.
 // This is known as "pre-caching".
 self.addEventListener('install', event => {
+
   // https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil
   event.waitUntil(
     caches.open(cacheName)
@@ -20,7 +21,8 @@ self.addEventListener('install', event => {
 // Read assets from our primed cache AND cache any new resources as they are fetched
 self.addEventListener('fetch', function (event) {
   event.respondWith(
-    // Check if an incoming URL matches anything in our cache
+    // Check if an incoming URL matches anything in our cache and ignore any querystring parameters
+    // so you don't get any cache misses
     caches.match(event.request, { ignoreSearch: true })
       .then(function (response) {
         if (response) {
