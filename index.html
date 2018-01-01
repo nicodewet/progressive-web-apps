@@ -47,7 +47,7 @@
             <form>
                 <div class="custom-file">
                     <input type="file" accept="image/*" capture="camera" class="custom-file-input" id="customFile">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
+                    <label class="custom-file-label" for="customFile">Take Picture</label>
                 </div>
             </form>
         </div>
@@ -73,6 +73,25 @@
                 // registration failed :(
                 console.log('ServiceWorker registration failed: ', err);
             });
+        }
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
+        function returnFileSize(number) {
+            if (number < 1024) {
+                return number + 'bytes';
+            } else if (number > 1024 && number < 1048576) {
+                return (number / 1024).toFixed(1) + 'KB';
+            } else if (number > 1048576) {
+                return (number / 1048576).toFixed(1) + 'MB';
+            }
+        }
+        var input = document.querySelector('input');
+        input.addEventListener('change', updateImageDisplay);
+        function updateImageDisplay() {
+            var curFiles = input.files;
+            for (var i = 0; i < curFiles.length; i++) {
+                var fileDetails = 'File name ' + curFiles[i].name + ', file size ' + returnFileSize(curFiles[i].size) + '.';
+                alert(fileDetails);
+            }
         }
     </script>
 </body>
