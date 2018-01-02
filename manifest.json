@@ -2,8 +2,8 @@
   "name": "Kamera web app",
   "short_name": "Kamera",
   "start_url": "./index.html",
-  "theme_color": "#FFDF00",
-  "background_color": "#FFDF00",
+  "theme_color": "#32393E",
+  "background_color": "#32393E",
   "display": "standalone",
   "icons": [
     {
