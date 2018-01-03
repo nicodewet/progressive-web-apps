@@ -43,6 +43,7 @@
     </nav>
 
     <main role="main" class="container">
+        
         <div class="starter-template">
             <form>
                 <div class="custom-file">
@@ -50,7 +51,11 @@
                     <label class="custom-file-label" for="customFile">Take Picture</label>
                 </div>
             </form>
+
+            <div id = "alert_placeholder"></div>
+            
         </div>
+        
 
     </main>
     <!-- /.container -->
@@ -93,6 +98,19 @@
                 alert(fileDetails);
             }
         }
+
+        // Show an offline notification if the user if offline
+        function showIndicator() {
+            $('#alert_placeholder').html('<div class="alert alert-info" role="alert"><strong>You are offline.</strong> Keep taking pictures though, they will be sent to your cloud storage once you are back online.</div>')
+        }
+        // Hide the offline notification when the user comes back online
+        function hideIndicator() {
+            $('#alert_placeholder').html('');
+        }
+        // Update the online status icon based on connectivity
+        window.addEventListener('online',  hideIndicator);
+        window.addEventListener('offline', showIndicator);
+        
     </script>
 </body>
 
